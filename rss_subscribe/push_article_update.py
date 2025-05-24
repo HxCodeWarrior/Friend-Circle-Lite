@@ -11,7 +11,7 @@ HEADERS_JSON = {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/123.0.0.0 Safari/537.36 "
-        "(Friend-Circle-Lite/1.0; +https://github.com/willow-god/Friend-Circle-Lite)"
+        "(Friend-Circle-Lite/1.0; +https://github.com/HxCodeWarrio/Friend-Circle-Lite)"
     ),
     "X-Friend-Circle": "1.0"
 }
