@@ -1,0 +1,68 @@
+# 爬虫相关配置
+# 解释：使用request实现友链文章爬取，并放置到根目录的all.json下
+#   enable:             是否启用爬虫
+#   json_url:           请填写对应格式json的地址，仅支持网络地址
+#   article_count:      请填写每个博客需要获取的最大文章数量
+#   marge_result:       是否合并多个json文件，若为true则会合并指定网络地址和本地地址的json文件
+#     enable:           是否启用合并功能，该功能提供与自部署的友链合并功能，可以解决服务器部分国外网站无法访问的问题
+#     marge_json_path:  请填写网络地址的json文件，用于合并，不带空格！！！
+spider_settings:
+  enable: true
+  json_url: "https://blog.devnest.top/friend.json"
+  article_count: 15
+  merge_result:
+    enable: true
+    merge_json_url: "https://fc.api.418121.xyz/all.json"
+
+# 邮箱推送功能配置，暂未实现，等待后续开发
+# 解释：每天为指定邮箱推送所有友链文章的更新，仅能指定一个
+#   enable:             是否启用邮箱推送功能
+#   to_email:           收件人邮箱地址
+#   subject:            邮件主题
+#   body_template:      邮件正文的 HTML 模板文件
+email_push:
+  enable: false
+  to_email: ymxykx@qq.com
+  subject: "今天的 RSS 订阅更新"
+  body_template: "rss_template.html"
+
+# 邮箱issue订阅功能配置
+# 解释：向在issue中提取的所有邮箱推送您网站中的更新，添加邮箱和删除邮箱均通过添加issue对应格式实现
+#   enable:             是否启用邮箱推送功能
+#   github_username:    GitHub 用户名，用于构建issue api地址
+#   github_repo:        GitHub 仓库名，用于构建issue api地址
+#   your_blog_url:      你的博客地址
+#   website_info:       你的博客信息
+#     title:            你的博客标题，如果启用了推送，用于生成邮件主题
+rss_subscribe:
+  enable: true
+  github_username: HxCodeWarrior
+  github_repo: Friend-Circle-Lite
+  your_blog_url: https://blog.devnest.top/
+  email_template: "./rss_subscribe/email_template.html"
+  website_info:
+    title: "ByteWyrm"
+
+# SMTP 配置
+# 解释：使用其中的相关配置实现上面两种功能，若无推送要求可以不配置，请将以上两个配置置为false
+#   email:              发件人邮箱地址
+#   server：            SMTP 服务器地址
+#   port：              SMTP 端口号
+#   use_tls：           是否使用 tls 加密
+smtp:
+  email: hxq922720@gmail.com
+  server: smtp.gmail.com
+  port: 587
+  use_tls: true
+
+# 特殊RSS地址指定，可以置空但是不要删除！
+# 解释：用于指定特殊RSS地址，如B站专栏等不常见RSS地址后缀，可以添加多个
+#   name:               友链名称
+#   url:                指定的RSS地址
+specific_RSS:
+  - name: "Cloud"
+    url: "https://www.cloudofficial.top/rss/feed.xml"
+  - name: "南蛮子懋和"
+    url: "https://www.dao.js.cn/feed.php"
+  # - name: "無名小栈"
+  #   url: "https://blog.imsyy.top/rss.xml"
